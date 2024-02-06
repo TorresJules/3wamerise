@@ -1,0 +1,9 @@
+Sessions = (Id_Sessions COUNTER, name VARCHAR(255), start_date DATETIME, end_date DATETIME);
+Courses = (Id_Courses COUNTER, name VARCHAR(255));
+UserRoles = (Id_UserRoles COUNTER, name VARCHAR(50));
+EvaluationsTypes = (Id_EvaluationsTypes COUNTER, name VARCHAR(50));
+Users = (Id_Users COUNTER, email VARCHAR(255), pword VARCHAR(255), #Id_UserRoles);
+Evaluations = (Id_Evaluations COUNTER, #Id_Users, #Id_EvaluationsTypes);
+Grades = (Id_Grades COUNTER, grade DECIMAL(3,1), #Id_Users, #Id_Evaluations);
+Sessions_Courses = (#Id_Sessions, #Id_Courses);
+Students_Sessions = (#Id_Users, #Id_Sessions);
